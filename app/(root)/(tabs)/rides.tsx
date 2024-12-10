@@ -1,9 +1,10 @@
 import RideCard from '@/components/RideCard';
+import RidesSkeleton from '@/components/Skeletons/RidesSkeleton';
 import { images } from '@/constants';
 import { useFetch } from '@/lib/fetch';
 import { Ride } from '@/types/type';
 import { useUser } from '@clerk/clerk-expo';
-import { FlatList, Text, View, Image, ActivityIndicator } from 'react-native';
+import { FlatList, Text, View, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Rides = () => {
@@ -36,7 +37,7 @@ const Rides = () => {
                 <Text className="text-sm">No rides found</Text>
               </>
             ) : (
-              <ActivityIndicator size="small" color="#000" />
+              <RidesSkeleton />
             )}
           </View>
         )}
